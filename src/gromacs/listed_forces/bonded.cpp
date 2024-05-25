@@ -3583,6 +3583,74 @@ real g96angles(int             nbonds,
     return vtot;
 }
 
+/*! \brief Keating angle potential
+ *
+ * By Selva Nair. Three parameters needed:
+ *
+ * b0 = equilibrium bond length or Keating length scale 'r' in nm
+ * gamma = cosine of angle between bonds: b0^2 gamma should equal the
+ *         dot product of the two bond vectors at equilibrium
+ * beta = force constant in kJ/mol/nm^2
+ *
+ * Note: To be used in combination with a quartic bonds term
+ * that matches the Keating bond stretching potential.
+ *
+ */
+template<BondedKernelFlavor flavor>
+real keating(int             nbonds,
+               const t_iatom   forceatoms[],
+               const t_iparams forceparams[],
+               const rvec      x[],
+               rvec4           f[],
+               rvec            fshift[],
+               const t_pbc*    pbc,
+               real gmx_unused lambda,
+               real gmx_unused* dvdlambda,
+               gmx::ArrayRef<const real> /*charge*/,
+               t_fcdata gmx_unused* fcd,
+               t_disresdata gmx_unused* disresdata,
+               t_oriresdata gmx_unused* oriresdata,
+               int gmx_unused* global_atom_index)
+{
+    int  i, ai, aj, ak, type, t1, t2;
+    rvec r_ij, r_kj, fi, fj, fk;
+    real b02, gamma, beta, dt, vtot;
+
+    vtot = 0;
+    for (i = 0; (i < nbonds);)
+    {
+        type = forceatoms[i++];
+        ai   = forceatoms[i++];
+        aj   = forceatoms[i++];
+        ak   = forceatoms[i++];
+
+        /* Compute distance vectors ... */
+        t1 = pbc_rvec_sub(pbc, x[ai], x[aj], r_ij);
+        t2 = pbc_rvec_sub(pbc, x[ak], x[aj], r_kj);
+
+        b02 = forceparams[type].keating.b0;
+        gamma = forceparams[type].keating.gamma;
+        beta = (3.0/8.0)*forceparams[type].keating.beta/b02;
+        dt = iprod(r_ij, r_kj) - b02*gamma;  /* (r1.r2 - b0 b0 gamma) */
+
+        vtot += beta*dt*dt;
+        svmul(-2*beta*dt, r_kj, fi);
+        svmul(-2*beta*dt, r_ij, fk);
+        rvec_add(fi, fk, fj); /* -fj = fi + fk */
+        rvec_inc(f[ai], fi);
+        rvec_inc(f[ak], fk);
+        rvec_dec(f[aj], fj);  /* fj is -ve of force on atom aj */
+
+        if (computeVirial(flavor))
+        {
+            rvec_inc(fshift[t1], fi);
+            rvec_dec(fshift[c_centralShiftIndex], fj);
+            rvec_inc(fshift[t2], fk);
+        }
+    }
+    return vtot;
+}
+
 template<BondedKernelFlavor flavor>
 real cross_bond_bond(int             nbonds,
                      const t_iatom   forceatoms[],
@@ -4015,6 +4083,7 @@ constexpr std::array<BondedInteractions, F_NRE> c_bondedInteractionFunctions = {
     BondedInteractions{ cross_bond_bond<flavor>, eNR_CROSS_BOND_BOND },   // F_CROSS_BOND_BONDS
     BondedInteractions{ cross_bond_angle<flavor>, eNR_CROSS_BOND_ANGLE }, // F_CROSS_BOND_ANGLES
     BondedInteractions{ urey_bradley<flavor>, eNR_UREY_BRADLEY },         // F_UREY_BRADLEY
+    BondedInteractions{ keating<flavor>, eNR_KEATING },                   // F_KEATING
     BondedInteractions{ quartic_angles<flavor>, eNR_QANGLES },            // F_QUARTIC_ANGLES
     BondedInteractions{ tab_angles<flavor>, eNR_TABANGLES },              // F_TABANGLES
     BondedInteractions{ pdihs<flavor>, eNR_PROPER },                      // F_PDIHS
