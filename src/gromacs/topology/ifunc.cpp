@@ -138,6 +138,7 @@ const t_interaction_function interaction_function[F_NRE] = {
     def_bonded("CROSS_BOND_BOND", "Bond-Cross", 3, 3, 0),
     def_bonded("CROSS_BOND_ANGLE", "BA-Cross", 3, 4, 0),
     def_angle("UREY_BRADLEY", "U-B", 3, 4, 4),
+    def_angle("KEATING", "Keating", 3, 3, 0),
     def_angle("QANGLES", "Quartic Angles", 3, 6, 0),
     def_bondedt("TABANGLES", "Tab. Angles", 3, 2, 2),
     def_dihedral("PDIHS", "Proper Dih.", 4, 3, 3),
