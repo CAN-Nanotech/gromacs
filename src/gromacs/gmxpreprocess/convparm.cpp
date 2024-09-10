@@ -219,6 +219,11 @@ static int assign_param(t_functype                ftype,
             newparam->harmonic.rB  = old[2];
             newparam->harmonic.krB = old[3];
             break;
+        case F_KEATING:
+            newparam->keating.b0 = old[0];
+            newparam->keating.gamma = old[1];
+            newparam->keating.beta = old[2];
+            break;
         case F_MORSE:
             newparam->morse.b0A   = old[0];
             newparam->morse.cbA   = old[1];
