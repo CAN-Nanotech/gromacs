@@ -109,6 +109,13 @@ static void fill_ft_ind(int nft, const int* ft, const t_idef* idef, int ft_ind[]
                                 idef->iparams[i].harmonic.rA,
                                 idef->iparams[i].harmonic.krA);
                         break;
+                    case F_KEATING:
+                        sprintf(buf,
+                                "K_th=%.1f_%.2f_%.2f",
+                                idef->iparams[i].keating.b0,
+                                idef->iparams[i].keating.gamma,
+                                idef->iparams[i].keating.beta);
+                        break;
                     case F_UREY_BRADLEY:
                         sprintf(buf,
                                 "UB_th=%.1f_%.2f2f",

@@ -103,6 +103,10 @@ typedef union t_iparams
     } u_b;
     struct
     {
+       real b0, gamma, beta;
+    } keating;
+    struct
+    {
         real theta, c[5];
     } qangle;
     struct

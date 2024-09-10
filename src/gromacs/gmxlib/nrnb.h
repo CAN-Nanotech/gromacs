@@ -130,6 +130,7 @@ enum
     eNR_FBPOSRES,
     eNR_ANGRES,
     eNR_ANGRESZ,
+    eNR_KEATING,
     eNR_MORSE,
     eNR_CUBICBONDS,
     eNR_WALLS,
