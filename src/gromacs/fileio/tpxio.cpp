@@ -2028,6 +2028,11 @@ static void do_iparams(gmx::ISerializer* serializer, t_functype ftype, t_iparams
             serializer->doReal(&iparams->bham.b);
             serializer->doReal(&iparams->bham.c);
             break;
+        case F_KEATING:
+            serializer->doReal(&iparams->keating.b0);
+            serializer->doReal(&iparams->keating.gamma);
+            serializer->doReal(&iparams->keating.beta);
+            break;
         case F_MORSE:
             serializer->doReal(&iparams->morse.b0A);
             serializer->doReal(&iparams->morse.cbA);

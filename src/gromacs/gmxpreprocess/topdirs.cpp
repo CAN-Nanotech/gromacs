@@ -137,6 +137,7 @@ int ifunc_index(Directive d, int type)
                 case 8: return F_TABANGLES;
                 case 9: return F_LINEAR_ANGLES;
                 case 10: return F_RESTRANGLES;
+                case 11: return F_KEATING;
                 default: gmx_fatal(FARGS, "Invalid angle type %d", type);
             }
         case Directive::d_pairs:

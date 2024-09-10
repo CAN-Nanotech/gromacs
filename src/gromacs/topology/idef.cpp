@@ -122,6 +122,12 @@ void printInteractionParameters(gmx::TextWriter* writer, t_functype ftype, const
                     iparams.u_b.r13B,
                     iparams.u_b.kUBB);
             break;
+        case F_KEATING:
+            writer->writeLineFormatted("b0=%15.8e, gamma=%15.8e, beta=%15.8e",
+                                       iparams.keating.b0,
+                                       iparams.keating.gamma,
+                                       iparams.keating.beta);
+            break;
         case F_QUARTIC_ANGLES:
             writer->writeStringFormatted("theta=%15.8e", iparams.qangle.theta);
             for (int i = 0; i < 5; i++)
