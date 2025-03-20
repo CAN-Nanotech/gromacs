@@ -3647,7 +3647,7 @@ real keating(int             nbonds,
             rvec_dec(fshift[c_centralShiftIndex], fj); /* fj is -ve of force on aj */
             rvec_inc(fshift[t2], fk);
         }
-#if 0
+#ifdef KEATING_DEBUG
         printf("keating: ai, aj, ak,  x[ai][], x[aj][], x[ak][] = %d %d %d [%f %f %f] [%f %f %f] [%f %f %f]\n",
                 ai, aj, ak, x[ai][0], x[ai][1], x[ai][2], x[aj][0], x[aj][1], x[aj][2], x[ak][0], x[ak][1], x[ak][2]);
         printf("keating: rij, rkj = [%f %f %f] [%f %f %f]\n", r_ij[0], r_ij[1], r_ij[2], r_kj[0], r_kj[1], r_kj[2]);
