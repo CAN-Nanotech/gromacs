@@ -200,6 +200,7 @@ enum tpxv
     tpxv_RefScaleMultipleCOMs, /**< Add multiple COM groups for refcoord-scale */
     tpxv_InputHistogramCounts, /**< Provide input histogram counts for current expanded ensemble state */
     tpxv_NNPotIFuncType,       /**< Add interaction function type for neural network potential */
+    tpxv_KeatingIFuncType,     /**< Add interaction function type for keating potential */
     tpxv_Count                 /**< the total number of tpxv versions */
 };
 
@@ -295,6 +296,7 @@ static const t_ftupd ftupd[] = {
     { tpxv_VSite2FD, F_VSITE2FD },
     { tpxv_GenericInternalParameters, F_DENSITYFITTING },
     { tpxv_NNPotIFuncType, F_ENNPOT },
+    { tpxv_KeatingIFuncType, F_KEATING },
     { tpxv_Pre96Version69, F_VTEMP_NOLONGERUSED },
     { tpxv_Pre96Version66, F_PDISPCORR },
     { tpxv_Pre96Version79, F_DVDL_COUL },

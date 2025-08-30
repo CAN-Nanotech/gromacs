@@ -130,7 +130,6 @@ enum
     eNR_FBPOSRES,
     eNR_ANGRES,
     eNR_ANGRESZ,
-    eNR_KEATING,
     eNR_MORSE,
     eNR_CUBICBONDS,
     eNR_WALLS,
@@ -165,6 +164,7 @@ enum
     eNR_UREY_BRADLEY,
     eNR_CROSS_BOND_BOND,
     eNR_CROSS_BOND_ANGLE,
+    eNR_KEATING,
     eNRNB
 };
 

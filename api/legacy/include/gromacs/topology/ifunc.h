@@ -136,7 +136,6 @@ enum
     F_CROSS_BOND_BONDS,
     F_CROSS_BOND_ANGLES,
     F_UREY_BRADLEY,
-    F_KEATING,
     F_QUARTIC_ANGLES,
     F_TABANGLES,
     F_PDIHS,
@@ -215,6 +214,7 @@ enum
     F_DVDL_BONDED,
     F_DVDL_RESTRAINT,
     F_DVDL_TEMPERATURE, //!< Not calculated for now, but should just be the energy (NVT) or enthalpy (NPT), or 0 (NVE).
+    F_KEATING,
     F_NRE //!< This number is for the total number of energies.
 };
 

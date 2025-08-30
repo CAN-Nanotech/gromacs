@@ -4067,7 +4067,6 @@ constexpr std::array<BondedInteractions, F_NRE> c_bondedInteractionFunctions = {
     BondedInteractions{ cross_bond_bond<flavor>, eNR_CROSS_BOND_BOND },   // F_CROSS_BOND_BONDS
     BondedInteractions{ cross_bond_angle<flavor>, eNR_CROSS_BOND_ANGLE }, // F_CROSS_BOND_ANGLES
     BondedInteractions{ urey_bradley<flavor>, eNR_UREY_BRADLEY },         // F_UREY_BRADLEY
-    BondedInteractions{ keating<flavor>, eNR_KEATING },                   // F_KEATING
     BondedInteractions{ quartic_angles<flavor>, eNR_QANGLES },            // F_QUARTIC_ANGLES
     BondedInteractions{ tab_angles<flavor>, eNR_TABANGLES },              // F_TABANGLES
     BondedInteractions{ pdihs<flavor>, eNR_PROPER },                      // F_PDIHS
@@ -4144,6 +4143,7 @@ constexpr std::array<BondedInteractions, F_NRE> c_bondedInteractionFunctions = {
     BondedInteractions{ unimplemented, -1 },                       // F_DVDL_BONDED
     BondedInteractions{ unimplemented, -1 },                       // F_DVDL_RESTRAINT
     BondedInteractions{ unimplemented, -1 },                       // F_DVDL_TEMPERATURE
+    BondedInteractions{ keating<flavor>, eNR_KEATING },            // F_KEATING
 };
 
 /*! \brief List of instantiated BondedInteractions list */
