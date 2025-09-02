@@ -4115,7 +4115,9 @@ constexpr std::array<BondedInteractions, F_NRE> c_bondedInteractionFunctions = {
     BondedInteractions{ unimplemented, -1 },                       // F_CONSTR
     BondedInteractions{ unimplemented, -1 },                       // F_CONSTRNC
     BondedInteractions{ unimplemented, -1 },                       // F_SETTLE
+    BondedInteractions{ unimplemented, -1 },                       // F_VSITE1
     BondedInteractions{ unimplemented, -1 },                       // F_VSITE2
+    BondedInteractions{ unimplemented, -1 },                       // F_VSITE2FD
     BondedInteractions{ unimplemented, -1 },                       // F_VSITE3
     BondedInteractions{ unimplemented, -1 },                       // F_VSITE3FD
     BondedInteractions{ unimplemented, -1 },                       // F_VSITE3FAD
@@ -4127,6 +4129,7 @@ constexpr std::array<BondedInteractions, F_NRE> c_bondedInteractionFunctions = {
     BondedInteractions{ unimplemented, -1 },                       // F_DENSITYFITTING
     BondedInteractions{ unimplemented, -1 },                       // F_EQM
     BondedInteractions{ unimplemented, -1 },                       // F_ENNPOT
+    BondedInteractions{ keating<flavor>, eNR_KEATING },            // F_KEATING
     BondedInteractions{ unimplemented, -1 },                       // F_EPOT
     BondedInteractions{ unimplemented, -1 },                       // F_EKIN
     BondedInteractions{ unimplemented, -1 },                       // F_ETOT
@@ -4143,7 +4146,6 @@ constexpr std::array<BondedInteractions, F_NRE> c_bondedInteractionFunctions = {
     BondedInteractions{ unimplemented, -1 },                       // F_DVDL_BONDED
     BondedInteractions{ unimplemented, -1 },                       // F_DVDL_RESTRAINT
     BondedInteractions{ unimplemented, -1 },                       // F_DVDL_TEMPERATURE
-    BondedInteractions{ keating<flavor>, eNR_KEATING },            // F_KEATING
 };
 
 /*! \brief List of instantiated BondedInteractions list */

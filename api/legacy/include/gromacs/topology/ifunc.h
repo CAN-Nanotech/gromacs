@@ -198,6 +198,7 @@ enum
     F_DENSITYFITTING,
     F_EQM,
     F_ENNPOT,
+    F_KEATING,
     F_EPOT,
     F_EKIN,
     F_ETOT,
@@ -214,7 +215,6 @@ enum
     F_DVDL_BONDED,
     F_DVDL_RESTRAINT,
     F_DVDL_TEMPERATURE, //!< Not calculated for now, but should just be the energy (NVT) or enthalpy (NPT), or 0 (NVE).
-    F_KEATING,
     F_NRE //!< This number is for the total number of energies.
 };
 

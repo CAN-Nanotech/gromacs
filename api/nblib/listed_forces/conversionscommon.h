@@ -156,6 +156,7 @@ using GmxToNblibMapping =
                    Unimplemented,            //    F_DENSITYFITTING,
                    Unimplemented,            //    F_EQM,
                    Unimplemented,            //    F_ENNPOT,
+                   NotInNblibButInGMX,       //    F_KEATING,
                    Unimplemented,            //    F_EPOT,
                    Unimplemented,            //    F_EKIN,
                    Unimplemented,            //    F_ETOT,
@@ -173,7 +174,6 @@ using GmxToNblibMapping =
                    Unimplemented,            //    F_DVDL_RESTRAINT,
                    Unimplemented,            //    F_DVDL_TEMPERATURE,
                    /* not calculated for now, but should just be the energy (NVT) or enthalpy (NPT), or 0 (NVE) */
-                   NotInNblibButInGMX,       //    F_KEATING,
                    Unimplemented //    F_NRE
                                  /* This number is for the total number of energies */
                    >;
